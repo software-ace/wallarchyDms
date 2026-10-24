@@ -686,10 +686,7 @@ PluginComponent {
                                 anchors.fill: parent
                                 hoverEnabled: true
                                 cursorShape: Qt.PointingHandCursor
-                                onClicked: {
-                                    searchInput.text = ""
-                                    root.selectTag("")
-                                }
+                                onClicked: root.selectTag("")
                             }
                         }
 
@@ -717,10 +714,7 @@ PluginComponent {
                                     anchors.fill: parent
                                     hoverEnabled: true
                                     cursorShape: Qt.PointingHandCursor
-                                    onClicked: {
-                                        searchInput.text = modelData
-                                        root.selectTag(modelData)
-                                    }
+                                    onClicked: root.selectTag(modelData)
                                 }
                             }
                         }
