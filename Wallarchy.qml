@@ -613,9 +613,21 @@ PluginComponent {
                 width: parent.width
                 spacing: Theme.spacingM
 
-                Row {
+                DankTextField {
+                    id: searchInput
                     width: parent.width
-                    spacing: Theme.spacingS
+                    height: 44
+                    // Bound to root.query so chip clicks show their tag here.
+                    text: root.query
+                    leftIconName: "search"
+                    showClearButton: true
+                    placeholderText: "Search Wallhaven… (Enter to search)"
+                    onAccepted: root.setQuery(text)
+                    // textEdited fires on programmatic changes too; only react to a manual clear.
+                    onTextEdited: {
+                        if (text === "" && root.query !== "")
+                            root.setQuery("")
+                    }
                 }
 
                 Flickable {
